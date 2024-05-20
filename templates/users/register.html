@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Register{% endblock %}
+
+{% block content %}
+    <div class="container-fluid text-left custom-form">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 py-5">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">Register</h3>
+                    </div>
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="card-body">
+                            <div class="mb-3">{{ form.username }}</div>
+                            <small class="help-text">Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+                                only.</small>
+                            <div class="mb-3">{{ form.email }}</div>
+                            <div class="mb-3">{{ form.password1 }}</div>
+                            <div class="mb-3">{{ form.password2 }}</div>
+                            <small>
+                                <ul>
+                                    <li>Your password can't be too similar to your other personal information.</li>
+                                    <li>Your password must contain at least 8 characters.</li>
+                                    <li>Your password can't be a commonly used password.</li>
+                                    <li>Your password can't be entirely numeric.</li>
+                                </ul>
+                            </small>
+                        </div>
+                        <div class="card-footer text-center">
+                            <button type="submit" class="btn btn-success">Register</button>
+                            <a class="btn btn-light" href="{% url 'users:login' %}">Already have an account?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

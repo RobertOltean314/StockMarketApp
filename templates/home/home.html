@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% block title %}Home Page{% endblock %}
+{% load static %}
+{% block content %}
+    <header id="header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-5 offset-md-1 py-5 text-center text-md-start">
+                    <h1 class="header-title">Stock Market <br> Application</h1>
+                    <h5 class="header-subtitle">Made by Oltean Robert</h5>
+                    <blockquote class="header-blockquote">
+                        "The Stock Market is filled with individuals
+                        who <br> know the price of everything, but the
+                        value of nothing."
+                        <br>
+                        <cite class="header-quote-author">- Phillip Fisher</cite>
+                    </blockquote>
+                    <a href="#features" class="button button-left">How does it work?</a>
+                    {% if not user.is_authenticated %}
+                        <a href="{% url 'users:register' %}" class="button button-right">Get Started</a>
+                    {% endif %}
+                </div>
+                <div class="col-md-5 py-5">
+                    <img class="header-image img-fluid" src="{% static 'images/image.jpg' %}" alt="Stock Market Image">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="features" class="features">
+        <div class="container-fluid">
+            <h2 class="text-center">Most Important Features</h2>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-4 py-2 h-auto">
+                    <div class="card text-center">
+                        <div class="card-header icon-container"><i class="fa fa-money"></i></div>
+                        <div class="card-body">
+                            <h5 class="card-title text-uppercase">Stock Market Data</h5>
+                            <p class="card-text"> Providing real-time data from the stock market,
+                                ensuring you have the most up-to-date information at your fingertips. You can track your
+                                favorite stocks, view detailed company profiles, and analyze market trends all in one
+                                place. We also offer historical data analysis, allowing you to study market patterns
+                                over time and make informed investment decisions.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 py-2 h-auto">
+                    <div class="card text-center">
+                        <div class="card-header icon-container">
+                            <i class="fa fa-bar-chart-o"></i>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title text-uppercase">Market Analysis</h5>
+                            <p class="card-text"> Offering comprehensive market analysis tools that help
+                                you understand the current market trends. With in-depth charts and statistical data,
+                                you can easily analyze the performance of various stocks. Our tools also allow you to
+                                compare different stocks and sectors, helping you make informed investment decisions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4 py-2 h-auto">
+                    <div class="card text-center">
+                        <div class="card-header icon-container"><i class="fa fa-bitcoin"></i></div>
+                        <div class="card-body">
+                            <h5 class="card-title text-uppercase">Stock Market Prediction</h5>
+                            <p class="card-text">Advanced stock market prediction tools. Using
+                                machine learning algorithms and historical data, we provide predictive insights to help
+                                you anticipate market movements and make strategic investment decisions. These
+                                prediction can identify potential investment opportunities and risks, giving you a
+                                competitive edge in the market.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container-fluid">
+            <h2 class="text-center">Testimonials</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <blockquote class="card-text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Adipisci
+                        architecto blanditiis
+                        consequuntur
+                        ducimus ea eligendi fuga id inventore ipsam labore nobis odio, quaerat quasi
+                        quisquam,
+                        recusandae sequi
+                        temporibus unde voluptatum! - User A
+                    </blockquote>
+                </div>
+                <div class="col-md-4">
+                    <blockquote class="card-text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Adipisci
+                        architecto blanditiis
+                        consequuntur
+                        ducimus ea eligendi fuga id inventore ipsam labore nobis odio, quaerat quasi
+                        quisquam,
+                        recusandae sequi
+                        temporibus unde voluptatum! - User A
+                    </blockquote>
+                </div>
+                <div class="col-md-4">
+                    <blockquote class="card-text"> Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        Adipisci
+                        architecto blanditiis
+                        consequuntur
+                        ducimus ea eligendi fuga id inventore ipsam labore nobis odio, quaerat quasi
+                        quisquam,
+                        recusandae sequi
+                        temporibus unde voluptatum! - User A
+                    </blockquote>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer" class="footer">
+        <div class="container-fluid">
+            <div class="row footer-list">
+                <div class="col-12 col-md-6 col-lg-6 py-2 h-auto">
+                    <a href="https://www.linkedin.com/in/robert-oltean-0888b9251/?originalSubdomain=ro"
+                       class="fa fa-linkedin" target="_blank"> Linkedin</a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6 py-2 h-auto"><a href="https://github.com/RobertOltean314"
+                                                                     class="fa fa-github" target="_blank"> Github</a>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6 py-2 h-auto"><a href="https://robertoltean.ro/"
+                                                                     class="fa fa-coffee" target="_blank"> Personal
+                    Website</a></div>
+                <div class="col-12 col-md-6 col-lg-6 py-2 h-auto">
+                    <a class="fa" href="#">olteanrobertadrian314@gmail.com</a>
+                </div>
+                <div class="col-12 col-md-12 col-lg-12 py-2 h-auto"><p>© 2024 Oltean Robert. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% for stock in form.instance.stocks.all %}
+    <p>Name: {{ stock.stock_name }}</p>
+    <p>Last Close Price: {{ stock.close_price }}</p>
+{% endfor %}
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update Watchlist</button>
+</form>
+
+{% endblock %}

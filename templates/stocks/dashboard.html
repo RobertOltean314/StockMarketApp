@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <button id="candlestick-button" class="button button-right">Candle Sticks Chart</button>
+    <button id="timeseries-button" class="button button-right">Timeseries</button>
+    <button id="ohlc-button" class="button button-right">OHLC</button>
+    <button id="volume-button" class="button button-right">Volume</button>
+
+    <div id="graph-wrapper">
+        <div id="graph-container"></div>
+    </div>
+{% endblock %}

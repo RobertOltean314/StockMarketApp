@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <a class="navbar-brand">Navbar</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+            {% if user.is_authenticated %}
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'watchlist' %}" >Watchlist</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true">Markets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true">Crypto</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true">Prediction</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'users:logout' %}">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link active">Welcome, {{ user.username }}!</span>
+                    </li>
+                    <form class="d-flex align-items-center" role="search" action="{% url 'stock_graph' %}" method="GET">
+                        <input class="form-control me-2 search-form" type="search" placeholder="Search"
+                               aria-label="Search"
+                               name="stock_name">
+                        <button class="btn btn-success h-75" type="submit">Search</button>
+                    </form>
+                </ul>
+
+            {% else %}
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true">Markets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-disabled="true">Crypto</a>
+                    </li>
+                </ul>
+
+
+                <ul class="navbar-nav mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'users:login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{% url 'users:register' %}">Register</a>
+                    </li>
+                </ul>
+
+            {% endif %}
+        </div>
+    </div>
+</nav>

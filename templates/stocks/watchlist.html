@@ -1,33 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-    {% if form.instance.stocks.all %}
-        <table>
-            {% for stock in form.instance.stocks.all %}
-                <tr>
-                    <td>{{ stock.stock_name }}</td>
-                    <td>{{ stock.close_price }}</td>
-                    <td>
-                        <form method="post" action="{% url 'watchlist' %}">
-                            {% csrf_token %}
-                            <input type="hidden" name="action" value="add">
-                            <input type="hidden" name="stock_name" value="{{ stock.stock_name }}">
-                            <button type="submit" class="button button-right">Add to Watchlist</button>
-                        </form>
-
-                        <form method="post" action="{% url 'watchlist' %}">
-                            {% csrf_token %}
-                            <input type="hidden" name="action" value="remove">
-                            <input type="hidden" name="stock_id" value="{{ stock.id }}">
-                            <button type="submit">Remove from Watchlist</button>
-                        </form>
-                    </td>
-                </tr>
-            {% endfor %}
-        </table>
-    {% else %}
-        <p>Your watchlist is currently empty. Use the form below to add a stock to your watchlist.</p>
-    {% endif %}
-
+    <table>
+        {% for stock, data in stocks %}
+            <tr>
+                <td>{{ stock.stock_name }}</td>
+                <td>{{ data.close_price }}</td>
+                <td>
+                    <form method="post" action="{% url 'watchlist' %}">
+                        {% csrf_token %}
+                        <input type="hidden" name="action" value="remove">
+                        <input type="hidden" name="stock_name" value="{{ stock.stock_name }}">
+                        <button type="submit">Remove from Watchlist</button>
+                    </form>
+                </td>
+            </tr>
+        {% empty %}
+            <tr>
+                <td colspan="3">Your watchlist is currently empty. Use the form below to add a stock to your
+                    watchlist.
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
 {% endblock %}

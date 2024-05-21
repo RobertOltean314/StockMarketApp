@@ -10,7 +10,7 @@
     <form method="post" action="{% url 'watchlist' %}">
         {% csrf_token %}
         <input type="hidden" name="action" value="add">
-        <input type="hidden" name="stock_id" value="{{ stock.name }}">
+        <input type="hidden" name="stock_name" value="{{ stock.stock_name }}">
         <button type="submit" class="button button-right">Add to Watchlist</button>
     </form>
 

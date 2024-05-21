@@ -2,15 +2,32 @@
 
 {% block content %}
 
-{% for stock in form.instance.stocks.all %}
-    <p>Name: {{ stock.stock_name }}</p>
-    <p>Last Close Price: {{ stock.close_price }}</p>
-{% endfor %}
+    {% if form.instance.stocks.all %}
+        <table>
+            {% for stock in form.instance.stocks.all %}
+                <tr>
+                    <td>{{ stock.stock_name }}</td>
+                    <td>{{ stock.close_price }}</td>
+                    <td>
+                        <form method="post" action="{% url 'watchlist' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="action" value="add">
+                            <input type="hidden" name="stock_name" value="{{ stock.stock_name }}">
+                            <button type="submit" class="button button-right">Add to Watchlist</button>
+                        </form>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Update Watchlist</button>
-</form>
+                        <form method="post" action="{% url 'watchlist' %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="action" value="remove">
+                            <input type="hidden" name="stock_id" value="{{ stock.id }}">
+                            <button type="submit">Remove from Watchlist</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Your watchlist is currently empty. Use the form below to add a stock to your watchlist.</p>
+    {% endif %}
 
 {% endblock %}

@@ -6,6 +6,14 @@
     <button id="ohlc-button" class="button button-right">OHLC</button>
     <button id="volume-button" class="button button-right">Volume</button>
 
+    <!-- Add to Watchlist button -->
+    <form method="post" action="{% url 'watchlist' %}">
+        {% csrf_token %}
+        <input type="hidden" name="action" value="add">
+        <input type="hidden" name="stock_id" value="{{ stock.name }}">
+        <button type="submit" class="button button-right">Add to Watchlist</button>
+    </form>
+
     <div id="graph-wrapper">
         <div id="graph-container"></div>
     </div>

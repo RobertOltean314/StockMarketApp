@@ -30,3 +30,4 @@ venv/Lib/site-packages/**/__pycache__/
 # Ignore system files
 .DS_Store
 Thumbs.db
+manage.py

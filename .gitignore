@@ -1,0 +1,31 @@
+# Ignore Python bytecode and cache files
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignore virtual environment
+venv/
+
+# Ignore Django database file
+db.sqlite3
+
+# Ignore IDE-specific files
+.idea/
+
+# Ignore static files (if generated dynamically)
+static/
+
+# Ignore compiled files and logs
+*.log
+*.pot
+*.mo
+
+# Ignore migration files (optional, if you want to regenerate them)
+migrations/
+
+# Ignore compiled Python files in site-packages
+venv/Lib/site-packages/**/__pycache__/
+
+# Ignore system files
+.DS_Store
+Thumbs.db

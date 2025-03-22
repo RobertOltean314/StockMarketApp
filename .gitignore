@@ -11,6 +11,7 @@ db.sqlite3
 
 # Ignore IDE-specific files
 .idea/
+.vscode/
 
 # Ignore static files (if generated dynamically)
 static/
